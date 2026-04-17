@@ -1,0 +1,112 @@
+// ─────────────────────────────────────────────────────
+// Slides Metadata — Tiêu đề, màu accent, icon
+// ─────────────────────────────────────────────────────
+
+export const slidesMeta = [
+  {
+    id: 'hero',
+    index: null,
+    label: 'Mở Đầu',
+    shortTitle: 'Mở Đầu',
+    navLabel: '① Mở Đầu',
+    accent: '#6366f1',
+  },
+  {
+    id: 'hook',
+    index: 2,
+    label: 'Câu Chuyện Chị Hoa',
+    shortTitle: 'Câu Chuyện',
+    navLabel: '② Câu Chuyện',
+    accent: '#f43f5e',
+  },
+  {
+    id: 'framework',
+    index: 3,
+    label: 'Khung Phân Tích 4 Tầng',
+    shortTitle: 'Khung PT',
+    navLabel: '③ Khung PT',
+    accent: '#6366f1',
+  },
+  {
+    id: 'mechanism-1',
+    index: 4,
+    label: 'Cơ Chế 1: Vòng Xoáy Đòn Bẩy',
+    shortTitle: 'Vòng Xoáy',
+    navLabel: '④ Vòng Xoáy',
+    accent: '#f59e0b',
+  },
+  {
+    id: 'mechanism-2',
+    index: 5,
+    label: 'Cơ Chế 2: Lệch Kỳ Hạn',
+    shortTitle: 'Lệch KH',
+    navLabel: '⑤ Lệch KH',
+    accent: '#f43f5e',
+  },
+  {
+    id: 'mechanism-3',
+    index: 6,
+    label: 'Cơ Chế 3: Tâm Lý Bầy Đàn',
+    shortTitle: 'Bầy Đàn',
+    navLabel: '⑥ Bầy Đàn',
+    accent: '#8b5cf6',
+  },
+  {
+    id: 'case-bds',
+    index: 7,
+    label: 'Case BDS Việt Nam',
+    shortTitle: 'BDS VN',
+    navLabel: '⑦ BDS VN',
+    accent: '#10b981',
+  },
+  {
+    id: 'labor-2023',
+    index: 8,
+    label: 'Lao Động & Xuất Khẩu 2023',
+    shortTitle: 'Lao Động',
+    navLabel: '⑧ Lao Động',
+    accent: '#f43f5e',
+  },
+  {
+    id: 'shipping',
+    index: 9,
+    label: 'Biến Động Biển Đỏ Q1/2024',
+    shortTitle: 'Biển Đỏ',
+    navLabel: '⑨ Biển Đỏ',
+    accent: '#06b6d4',
+  },
+  {
+    id: 'svb',
+    index: 10,
+    label: 'SVB 2023 — Lệch Kỳ Hạn Số Hóa',
+    shortTitle: 'SVB 2023',
+    navLabel: '⑩ SVB 2023',
+    accent: '#f43f5e',
+  },
+  {
+    id: 'crisis-2008',
+    index: 11,
+    label: 'Khủng Hoảng Tài Chính 2008',
+    shortTitle: '2008',
+    navLabel: '⑪ 2008',
+    accent: '#6366f1',
+  },
+  {
+    id: 'conclusion',
+    index: 12,
+    label: 'Kết Luận',
+    shortTitle: 'Kết Luận',
+    navLabel: '⑫ Kết Luận',
+    accent: '#6366f1',
+  },
+  {
+    id: 'team',
+    index: null,
+    label: 'Thành Viên Nhóm',
+    shortTitle: 'Nhóm',
+    navLabel: '👥 Nhóm',
+    accent: '#6366f1',
+  },
+];
+
+export const sectionIds = slidesMeta.map(s => s.id);
