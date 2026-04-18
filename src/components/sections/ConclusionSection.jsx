@@ -1,32 +1,27 @@
 import { motion } from 'framer-motion';
 import FadeInView from '../ui/FadeInView';
-import QuoteBlock from '../ui/QuoteBlock';
 import SpeakerTag from '../ui/SpeakerTag';
 import SectionLabel from '../ui/SectionLabel';
-import MorphingBlob from '../ui/MorphingBlob';
 import { staggerContainer, fadeInUp } from '../../animations/variants';
 
 const timeline = [
   {
     year: '2021',
-    event: 'BDS Việt Nam tích lũy',
-    detail: 'Tín dụng BDS +26%/năm · Trái phiếu 5.000 tỷ/DN · Dự án chưa có pháp lý',
-    color: '#f59e0b',
-    icon: '🌀',
+    event: 'BĐS tích lũy',
+    detail: 'TD BĐS +26% · TP 2–3 năm cho dự án 5–10 năm',
+    color: '#10b981',
   },
   {
     year: '2023',
-    event: 'Cú sốc kép',
-    detail: '280.000 lao động VN mất việc · SVB sụp đổ 48h · 42 tỷ USD bank run',
-    color: '#f43f5e',
-    icon: '💥',
+    event: 'Lao động VN + SVB',
+    detail: '280K mất việc · SVB 42 tỷ rút trong 8h',
+    color: '#10b981',
   },
   {
     year: '2008',
-    event: 'Khủng hoảng toàn cầu',
-    detail: 'Lehman Brothers $639B · Giá nhà Mỹ giảm 40% · CDO/MBS độc hại',
-    color: '#6366f1',
-    icon: '🌍',
+    event: 'Lehman sụp',
+    detail: '639 tỷ USD · cùng 3 cơ chế',
+    color: '#10b981',
   },
 ];
 
@@ -35,79 +30,129 @@ export default function ConclusionSection() {
     <section
       id="conclusion"
       className="section-base"
-      style={{ background: 'linear-gradient(180deg, #ede9fe 0%, #fce7f3 100%)' }}
+      style={{ background: '#fafaf9' }}
     >
-      <MorphingBlob color="#6366f1" size={500} style={{ top: '-10%', left: '-10%', opacity: 0.12 }} />
-      <MorphingBlob color="#ec4899" size={350} style={{ bottom: '-5%', right: '-5%', opacity: 0.1, animationDelay: '4s' }} />
+      <div className="section-container relative z-10 max-w-3xl mx-auto text-center">
 
-      <div className="section-container relative z-10">
+        {/* Speaker label */}
         <FadeInView>
-          <SectionLabel index={12} label="Kết Luận" accent="#6366f1" />
-          <SpeakerTag name="Hoàng Việt" time="9:00 – 10:00" color="#06b6d4" />
+          <SpeakerTag name="Kết Luận" time="9:00–10:00" color="#10b981" />
         </FadeInView>
 
+        {/* ── Big headline ── */}
         <FadeInView>
-          <h2 className="display-lg text-ink-900 mt-8 mb-2">Tất Cả Cùng</h2>
-          <h2 className="display-lg gradient-text-indigo mb-8">Một Câu Chuyện</h2>
+          <h2
+            className="mt-8"
+            style={{
+              fontFamily: "'Playfair Display', Georgia, serif",
+              fontSize: 'clamp(2.2rem, 5vw, 4rem)',
+              fontWeight: 900,
+              lineHeight: 1.15,
+              color: '#111827',
+              letterSpacing: '-0.02em',
+            }}
+          >
+            BĐS VN → Bình Dương<br />
+            → SVB → Lehman.
+          </h2>
+          {/* Green italic line */}
+          <h2
+            className="mt-1"
+            style={{
+              fontFamily: "'Playfair Display', Georgia, serif",
+              fontSize: 'clamp(2.2rem, 5vw, 4rem)',
+              fontWeight: 900,
+              fontStyle: 'italic',
+              lineHeight: 1.15,
+              color: '#10b981',
+              letterSpacing: '-0.02em',
+            }}
+          >
+            Cùng một câu chuyện.
+          </h2>
         </FadeInView>
 
-        {/* Timeline */}
+        {/* Subtitle */}
+        <FadeInView>
+          <p className="mt-6 text-ink-500 leading-relaxed max-w-xl mx-auto">
+            Ba cơ chế tư nhân = thuốc nổ tích lũy nhiều năm. Chính sách = tia lửa. Chị Hoa không
+            mất việc vì một thông tư sai — mà vì chuỗi cung ứng không có đệm an toàn, vì bảng
+            cân đối đã chất đầy rủi ro từ 2021.
+          </p>
+        </FadeInView>
+
+        {/* ── Timeline cards ── */}
         <motion.div
           variants={staggerContainer}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.2 }}
-          className="relative mb-12"
+          className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-10 mb-12 text-left"
         >
-          {/* Connecting line */}
-          <div className="absolute left-6 top-8 bottom-8 w-0.5 bg-gradient-to-b from-amber-400 via-coral-400 to-indigo-500 hidden md:block" aria-hidden="true" />
-
-          <div className="space-y-6">
-            {timeline.map((item, i) => (
-              <motion.div
-                key={i}
-                variants={fadeInUp}
-                className="flex gap-5 items-start"
+          {timeline.map((item, i) => (
+            <motion.div
+              key={i}
+              variants={fadeInUp}
+              className="rounded-2xl p-5"
+              style={{
+                background: 'rgba(255,255,255,0.85)',
+                backdropFilter: 'blur(20px)',
+                border: '1px solid rgba(0,0,0,0.06)',
+                boxShadow: '0 4px 24px rgba(0,0,0,0.06)',
+              }}
+            >
+              <p
+                className="font-mono font-semibold text-xs tracking-widest mb-2"
+                style={{ color: item.color }}
               >
-                <div
-                  className="flex-shrink-0 w-12 h-12 rounded-full flex items-center justify-center text-xl shadow-md z-10"
-                  style={{ background: `${item.color}20`, border: `2px solid ${item.color}` }}
-                >
-                  {item.icon}
-                </div>
-                <div className="glass-card flex-1 p-5">
-                  <div className="flex items-center gap-3 mb-2">
-                    <span className="font-mono font-bold text-lg" style={{ color: item.color }}>{item.year}</span>
-                    <span className="font-bold text-ink-800">{item.event}</span>
-                  </div>
-                  <p className="text-ink-600 text-sm leading-relaxed">{item.detail}</p>
-                  <p className="text-ink-400 text-xs mt-2 font-mono">→ Cùng 3 cơ chế tư nhân</p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
+                {item.year}
+              </p>
+              <p className="font-bold text-ink-800 text-sm mb-1">{item.event}</p>
+              <p className="text-ink-500 text-xs leading-relaxed">{item.detail}</p>
+            </motion.div>
+          ))}
         </motion.div>
 
-        {/* Return to Chi Hoa */}
+        {/* ── HERO QUOTE — canh giữa như hình 2 ── */}
         <FadeInView>
-          <div className="glass-card p-8 mb-8 border-l-4 border-coral-400">
-            <p className="text-ink-700 leading-relaxed">
-              <strong className="text-coral-500">Quay lại chị Hoa:</strong> Chị không mất việc vì thông tư sai.
-              Chị mất việc vì chuỗi cung ứng toàn cầu không có đệm an toàn —
-              được tích lũy qua nhiều năm bởi <strong className="text-ink-800">quyết định tư nhân chạy theo lợi nhuận</strong>.
-            </p>
+          <div className="relative text-center py-8 px-4 md:px-12">
+            {/* Decorative quotation mark — góc trái nhỏ gọn */}
+            <div
+              className="absolute top-4 left-2 md:left-6 select-none pointer-events-none leading-none"
+              style={{
+                fontFamily: "'Playfair Display', Georgia, serif",
+                fontSize: '5rem',
+                color: '#a5b4fc',
+                opacity: 0.4,
+                lineHeight: 1,
+              }}
+              aria-hidden="true"
+            >
+              "
+            </div>
+
+            <blockquote>
+              <p
+                style={{
+                  fontFamily: "'Playfair Display', Georgia, serif",
+                  fontSize: 'clamp(1.35rem, 2.8vw, 2rem)',
+                  fontWeight: 700,
+                  fontStyle: 'italic',
+                  lineHeight: 1.55,
+                  color: '#111827',
+                  textAlign: 'center',
+                }}
+              >
+                Khủng hoảng không nổ từ thông cáo chính sách.
+                Nó nổ từ bảng cân đối tư nhân đã chất đầy rủi ro.
+              </p>
+              <footer className="mt-5 text-ink-400 text-xs font-mono tracking-widest uppercase text-center">
+                — Phe 1A · Nhóm 4 · L02
+              </footer>
+            </blockquote>
           </div>
         </FadeInView>
 
-        {/* Final punchline */}
-        <FadeInView>
-          <div className="text-center max-w-3xl mx-auto">
-            <QuoteBlock accent="#6366f1" className="text-left">
-              Khủng hoảng không nổ từ thông cáo chính sách. Nó nổ từ bảng cân đối tư nhân đã chất đầy rủi ro.
-            </QuoteBlock>
-            <p className="text-ink-400 text-sm mt-4 font-mono">— Luận điểm cốt lõi Phe 1A · Nhóm 4 · Lớp L02</p>
-          </div>
-        </FadeInView>
       </div>
     </section>
   );

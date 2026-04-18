@@ -3,9 +3,9 @@ import SectionLabel from '../ui/SectionLabel';
 import SpeakerTag from '../ui/SpeakerTag';
 import HeroStat from '../ui/HeroStat';
 import QuoteBlock from '../ui/QuoteBlock';
-import ImagePlaceholder from '../ui/ImagePlaceholder';
 import FadeInView from '../ui/FadeInView';
 import MorphingBlob from '../ui/MorphingBlob';
+import SectionBridge from '../ui/SectionBridge';
 import { staggerContainer, fadeInUp } from '../../animations/variants';
 import nhaMayImg from '../../assets/nha-may.jpg';
 
@@ -27,7 +27,7 @@ export default function HookSection() {
           viewport={{ once: true, amount: 0.15 }}
           className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center"
         >
-          {/* Left: Story */}
+          {/* Left: Story with Drop Caps */}
           <div>
             <motion.div variants={fadeInUp}>
               <SectionLabel index={2} label="Câu Chuyện Mở Đầu" accent="#f43f5e" />
@@ -39,18 +39,18 @@ export default function HookSection() {
               <span className="gradient-text-coral">Chị Hoa</span>
             </motion.h2>
 
+            {/* Drop caps paragraph — chữ đầu to gấp 5 lần */}
             <motion.div variants={fadeInUp} className="space-y-4 text-ink-600 leading-relaxed">
-              <p>
-                <strong className="text-ink-800">Tháng 4/2023.</strong> Chị Hoa, công nhân may mặc
-                tại Bình Dương, nhận tờ thông báo cắt giảm. Không phải vì chị làm sai.
-                Không phải vì nhà máy thua lỗ từ hôm qua.
+              <p className="drop-cap text-ink-700 text-[1.05rem]">
+                Tháng 4/2023. Chị Hoa, công nhân may mặc tại Bình Dương, nhận tờ thông báo cắt giảm.
+                Không phải vì chị làm sai. Không phải vì nhà máy thua lỗ từ hôm qua.
               </p>
               <p>
                 Mà vì cả một chuỗi cung ứng toàn cầu đã{' '}
                 <strong className="text-coral-500">không có đệm an toàn</strong> — tích lũy
                 từ nhiều năm trước.
               </p>
-              <p className="font-semibold text-ink-700">
+              <p className="font-semibold text-ink-700 italic">
                 Đây là lỗi của ai?
               </p>
             </motion.div>
@@ -89,6 +89,13 @@ export default function HookSection() {
             </FadeInView>
           </div>
         </motion.div>
+
+        {/* Section bridge → Framework */}
+        <SectionBridge
+          text="Chị Hoa không phải ngoại lệ. Cùng cơ chế này đã phá sập Silicon Valley Bank và Lehman Brothers. Để hiểu tại sao, ta cần một khung phân tích."
+          nextLabel="Khung 4 Tầng Nhân Quả"
+          accent="#6366f1"
+        />
       </div>
     </section>
   );
