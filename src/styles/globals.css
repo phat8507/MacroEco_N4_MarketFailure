@@ -170,6 +170,76 @@
   .bg-noise {
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.025'/%3E%3C/svg%3E");
   }
+
+  /* ── Drop Caps Magazine Style ───────────────────── */
+  .drop-cap::first-letter {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 5.5em;
+    font-weight: 900;
+    line-height: 0.8;
+    float: left;
+    margin-right: 0.08em;
+    margin-top: 0.04em;
+    color: #f43f5e;
+    padding-right: 4px;
+  }
+
+  .drop-cap-indigo::first-letter {
+    color: #6366f1;
+  }
+
+  .drop-cap-amber::first-letter {
+    color: #f59e0b;
+  }
+
+  /* ── Dark Section ───────────────────────────────── */
+  .section-dark {
+    @apply relative px-4 py-24 md:py-32 overflow-hidden;
+    background: linear-gradient(160deg, #0f172a 0%, #1e1b4b 50%, #0f172a 100%);
+    color: #e2e8f0;
+  }
+
+  .section-dark-crisis {
+    @apply relative px-4 py-24 md:py-32 overflow-hidden;
+    background: linear-gradient(160deg, #1a0a08 0%, #2d1515 50%, #1a0a08 100%);
+    color: #fecaca;
+  }
+
+  /* ── Editorial Layout ───────────────────────────── */
+  .editorial-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  @media (min-width: 1024px) {
+    .editorial-grid {
+      grid-template-columns: 6fr 4fr;
+      gap: 4rem;
+    }
+  }
+
+  .editorial-rule {
+    height: 3px;
+    background: linear-gradient(90deg, #6366f1, #f43f5e, transparent);
+    margin-bottom: 2rem;
+    border-radius: 2px;
+  }
+
+  /* Full-bleed section text */
+  .full-bleed-text {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(3rem, 7vw, 6rem);
+    font-weight: 900;
+    line-height: 0.95;
+    letter-spacing: -0.03em;
+  }
+}
+
+/* ── Stagger In Keyframe ────────────────────────────── */
+@keyframes staggerIn {
+  from { opacity: 0; transform: translateY(8px) scale(0.95); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
 }
 
 /* ── Recharts global overrides ──────────────────────── */
