@@ -20,7 +20,7 @@ export default function App() {
   return (
     <>
       <NavBar />
-      <main className="pt-[52px]">
+      <main>
         <HeroSection />
         <TeamSection />
         <HookSection />
