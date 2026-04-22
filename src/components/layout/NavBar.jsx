@@ -16,6 +16,7 @@ const customTabs = [
   { id: 'svb', num: '⑩', label: 'SVB 2023' },
   { id: 'crisis-2008', num: '⑪', label: '2008' },
   { id: 'conclusion', num: '⑫', label: 'KẾT LUẬN' },
+  { id: 'team-journey', num: '⑬', label: 'HẬU TRƯỜNG' },
 ];
 
 export default function NavBar() {
