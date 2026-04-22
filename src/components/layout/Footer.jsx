@@ -14,6 +14,7 @@ const sections = [
   { id: 'svb', label: 'SVB 2023' },
   { id: 'crisis-2008', label: '2008' },
   { id: 'conclusion', label: 'Kết Luận' },
+  { id: 'team-journey', label: 'Hậu Trường' },
 ];
 
 const sources = [
@@ -55,8 +56,8 @@ export default function Footer() {
   return (
     <footer
       style={{
-        background: 'linear-gradient(180deg, #0f172a 0%, #1e1b4b 100%)',
-        borderTop: '1px solid rgba(99,102,241,0.15)',
+        backgroundColor: '#ffffff',
+        borderTop: '3px solid #1a1a2e',
         position: 'relative',
       }}
     >
@@ -80,122 +81,142 @@ export default function Footer() {
         </button>
       </div>
 
-      <div className="max-w-6xl mx-auto px-6 pt-14 pb-8">
-        {/* Top grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
+      <div className="max-w-6xl mx-auto" style={{ padding: '48px 80px 28px' }}>
+        {/* Top grid (3 zones) */}
+        <div 
+          className="grid grid-cols-1 lg:grid-cols-[25fr_1px_45fr_1px_30fr] items-stretch"
+          style={{ gap: '24px' }}
+        >
 
-          {/* Col 1: Project info */}
-          <div>
+          {/* ZONE 1: Identity block (25%) */}
+          <div className="flex flex-col flex-1">
             <div className="flex items-center gap-2 mb-4">
-              <div className="w-6 h-6 rounded bg-indigo-500 flex items-center justify-center">
-                <span className="text-white text-xs font-bold">4</span>
+              <div
+                className="w-6 h-6 rounded flex items-center justify-center"
+                style={{ backgroundColor: '#c0392b' }}
+              >
+                <span style={{ color: '#ffffff', fontWeight: 700, fontSize: '0.75rem' }}>4</span>
               </div>
-              <span className="text-white font-bold text-sm font-mono">Nhóm 4 — Lớp L02</span>
+              <span style={{ color: '#1a1a2e', fontSize: '0.9rem', fontWeight: 700 }} className="font-mono">
+                Nhóm 4 — Lớp L02
+              </span>
             </div>
-            <p className="text-slate-400 text-xs leading-relaxed">
-              Phe 1A: <span className="text-indigo-300 font-semibold">Market Failure & Lòng Tham</span>
+            <p style={{ color: '#c0392b', fontSize: '0.75rem', lineHeight: 1.6 }}>
+              Phe 1A: <span className="font-semibold">Market Failure & Lòng Tham</span>
               <br />của Thị Trường
             </p>
-            <p className="text-slate-500 text-xs mt-3 font-mono">
+            <p style={{ color: '#6b7280', fontSize: '0.72rem', marginTop: '12px' }} className="font-mono">
               Môn: Kinh Tế Vĩ Mô · 2025
             </p>
             {/* Credits inline */}
-            <div className="mt-5 space-y-1.5">
+            <div className="mt-4 space-y-1">
               {credits.map((c, i) => (
-                <div key={i} className="flex items-center gap-2">
-                  <div className="w-1.5 h-1.5 rounded-full bg-indigo-400 flex-shrink-0" />
-                  <span className="text-slate-300 text-xs font-semibold">{c.name}</span>
-                  <span className="text-slate-500 text-xs">— {c.role}</span>
+                <div key={i} style={{ color: '#6b7280', fontSize: '0.72rem' }}>
+                  <span style={{ color: '#1a1a2e', fontWeight: 700 }}>{c.name}</span> — {c.role}
                 </div>
               ))}
             </div>
           </div>
 
-          {/* Col 2: Sitemap */}
-          <div>
-            <h3 className="text-slate-300 font-mono font-bold text-xs tracking-widest uppercase mb-4">
-              Nội Dung
-            </h3>
-            <ul className="space-y-2">
-              {sections.map((s) => (
-                <li key={s.id}>
-                  <button
-                    onClick={() => scrollTo(s.id)}
-                    className="text-slate-400 text-xs hover:text-indigo-300 transition-colors text-left font-mono"
-                  >
-                    → {s.label}
-                  </button>
-                </li>
-              ))}
-            </ul>
-          </div>
+          {/* Vertical Divider 1 */}
+          <div className="hidden lg:block w-px h-full" style={{ backgroundColor: '#e0e0e0' }} />
 
-          {/* Col 3: Sources */}
-          <div>
-            <h3 className="text-slate-300 font-mono font-bold text-xs tracking-widest uppercase mb-4">
-              Nguồn Dữ Liệu
-            </h3>
-            <ul className="space-y-2">
-              {sources.map((s, i) => (
-                <li key={i}>
-                  {s.url !== '#' ? (
-                    <a
-                      href={s.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-slate-400 text-xs hover:text-cyan-300 transition-colors font-mono"
+          {/* ZONE 2: Content & Sources (45%) */}
+          <div className="flex flex-col md:flex-row gap-8">
+            
+            {/* Sub-Col A: Nội Dung (60% implicitly flex auto/width) */}
+            <div style={{ flex: '0 0 60%' }}>
+              <h3 style={{ color: '#1a1a2e', fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: '16px' }} className="font-mono tracking-widest">
+                Nội Dung
+              </h3>
+              <ul style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gridAutoFlow: 'row', gap: '4px 16px' }}>
+                {sections.map((s) => (
+                  <li key={s.id}>
+                    <button
+                      onClick={() => scrollTo(s.id)}
+                      className="text-[#374151] hover:text-[#c0392b] text-[0.75rem] leading-[1.8] no-underline hover:underline transition-colors text-left font-mono"
                     >
-                      ↗ {s.name}
-                    </a>
-                  ) : (
-                    <span className="text-slate-500 text-xs font-mono">· {s.name}</span>
-                  )}
-                </li>
-              ))}
-            </ul>
+                      → {s.label}
+                    </button>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Sub-Col B: Nguồn Dữ Liệu */}
+            <div style={{ flex: '1' }}>
+              <h3 style={{ color: '#1a1a2e', fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: '16px' }} className="font-mono tracking-widest">
+                Nguồn Dữ Liệu
+              </h3>
+              <ul className="space-y-1">
+                {sources.map((s, i) => (
+                  <li key={i}>
+                    {s.url !== '#' ? (
+                      <a
+                        href={s.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-[#374151] hover:text-[#c0392b] text-[0.75rem] leading-[1.8] no-underline hover:underline transition-colors font-mono block"
+                      >
+                        ↗ {s.name}
+                      </a>
+                    ) : (
+                      <span className="text-[#374151] text-[0.75rem] leading-[1.8] font-mono block">· {s.name}</span>
+                    )}
+                  </li>
+                ))}
+              </ul>
+            </div>
+            
           </div>
 
-          {/* Col 4: Tech + quote */}
-          <div>
-            <h3 className="text-slate-300 font-mono font-bold text-xs tracking-widest uppercase mb-4">
+          {/* Vertical Divider 2 */}
+          <div className="hidden lg:block w-px h-full" style={{ backgroundColor: '#e0e0e0' }} />
+
+          {/* ZONE 3: Technology Info (30%) */}
+          <div className="flex flex-col h-full">
+            <h3 style={{ color: '#1a1a2e', fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: '16px' }} className="font-mono tracking-widest">
               Công Nghệ
             </h3>
-            <ul className="space-y-1.5 text-slate-500 text-xs font-mono">
+            <ul className="space-y-1 text-[#374151] text-[0.75rem] leading-[1.8] font-mono mb-8">
               {['React 18 + Vite 5', 'Tailwind CSS v3', 'Framer Motion v11', 'Recharts v2'].map((t) => (
                 <li key={t} className="flex items-center gap-2">
-                  <span className="w-1 h-1 rounded-full bg-violet-400 flex-shrink-0" />
+                  <span className="w-1 h-1 rounded-full bg-[#374151] flex-shrink-0" />
                   {t}
                 </li>
               ))}
             </ul>
 
-            {/* Mini quote */}
-            <div
-              className="mt-6 p-4 rounded-xl"
-              style={{ background: 'rgba(99,102,241,0.08)', border: '1px solid rgba(99,102,241,0.15)' }}
-            >
-              <p className="text-slate-300 text-xs italic leading-relaxed">
-                "Khủng hoảng không nổ từ thông cáo chính sách. Nó nổ từ bảng cân đối tư nhân."
+            {/* Visual Accent Footer */}
+            <div className="mt-auto text-right">
+              <div 
+                style={{ backgroundColor: '#e0e0e0', height: '1px', width: '50%', marginBottom: '8px', marginLeft: 'auto' }} 
+              />
+              <p style={{ fontSize: '0.6rem', color: '#9ca3af' }} className="font-mono">
+                Built with React 18 · Powered by open data
               </p>
-              <p className="text-indigo-400 text-xs mt-2 font-mono">— Phe 1A · Nhóm 4</p>
             </div>
           </div>
+
         </div>
 
-        {/* Divider */}
+        {/* Copyright bar */}
         <div
-          className="h-px mb-6"
-          style={{ background: 'linear-gradient(90deg, transparent, rgba(99,102,241,0.3), transparent)' }}
-        />
-
-        {/* Bottom bar */}
-        <div className="flex flex-col md:flex-row items-center justify-between gap-3">
-          <p className="text-slate-500 text-xs font-mono">
+          className="flex flex-col md:flex-row items-center justify-between gap-3"
+          style={{
+            marginTop: '48px',
+            padding: '16px 0',
+            borderTop: '1px solid #e0e0e0',
+            background: 'transparent'
+          }}
+        >
+          <p style={{ color: '#9ca3af', fontSize: '0.65rem' }} className="font-mono text-left w-full">
             © 2025 Nhóm 4 · Kinh tế vĩ mô · Lớp L02 · Tất cả số liệu trích dẫn từ nguồn công khai
           </p>
           <button
             onClick={scrollTop}
-            className="text-indigo-400 hover:text-indigo-300 text-xs font-mono transition-colors flex items-center gap-1.5"
+            style={{ color: '#1a1a2e', fontWeight: 600, fontSize: '0.65rem' }}
+            className="hover:underline font-mono transition-colors flex items-center justify-end gap-1.5 whitespace-nowrap"
           >
             Lên đầu ↑
           </button>
