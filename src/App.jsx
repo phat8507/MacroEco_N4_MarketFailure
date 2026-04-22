@@ -14,6 +14,7 @@ import SVBSection from './components/sections/SVBSection';
 import Crisis2008Section from './components/sections/Crisis2008Section';
 import ConclusionSection from './components/sections/ConclusionSection';
 import TeamSection from './components/sections/TeamSection';
+import TeamJourneySection from './components/sections/TeamJourneySection';
 
 export default function App() {
   return (
@@ -33,6 +34,7 @@ export default function App() {
         <SVBSection />
         <Crisis2008Section />
         <ConclusionSection />
+        <TeamJourneySection />
       </main>
       <Footer />
     </>
