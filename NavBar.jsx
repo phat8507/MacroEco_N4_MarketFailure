@@ -4,18 +4,19 @@ import useInViewSection from '../../hooks/useInViewSection';
 
 // Tab Data as per specification
 const customTabs = [
-  { id: 'hero', num: '①', label: 'MỞ ĐẦU' },
-  { id: 'hook', num: '②', label: 'CÂU CHUYỆN' },
-  { id: 'framework', num: '③', label: 'KHUNG PT' },
-  { id: 'mechanism-1', num: '④', label: 'VÒNG XOÁY' },
-  { id: 'mechanism-2', num: '⑤', label: 'LỆCH KH' },
-  { id: 'mechanism-3', num: '⑥', label: 'BẪY ĐÀN' },
-  { id: 'case-bds', num: '⑦', label: 'BDS VN' },
-  { id: 'labor-2023', num: '⑧', label: 'LAO ĐỘNG' },
-  { id: 'shipping', num: '⑨', label: 'BIẾN ĐỘ' },
-  { id: 'svb', num: '⑩', label: 'SVB 2023' },
-  { id: 'crisis-2008', num: '⑪', label: '2008' },
-  { id: 'conclusion', num: '⑫', label: 'KẾT LUẬN' },
+  { id: 'hero', label: 'MỞ ĐẦU' },
+  { id: 'hook', label: 'CÂU CHUYỆN' },
+  { id: 'framework', label: 'KHUNG PT' },
+  { id: 'mechanism-1', label: 'VÒNG XOÁY' },
+  { id: 'mechanism-2', label: 'LỆCH KH' },
+  { id: 'mechanism-3', label: 'BẪY ĐÀN' },
+  { id: 'case-bds', label: 'BDS VN' },
+  { id: 'labor-2023', label: 'LAO ĐỘNG' },
+  { id: 'shipping', label: 'BIẾN ĐỘ' },
+  { id: 'svb', label: 'SVB 2023' },
+  { id: 'crisis-2008', label: '2008' },
+  { id: 'conclusion', label: 'KẾT LUẬN' },
+  { id: 'team-journey', label: 'HẬU TRƯỜNG' },
 ];
 
 export default function NavBar() {
@@ -81,7 +82,7 @@ export default function NavBar() {
           height: '44px',
           display: 'flex',
           alignItems: 'center',
-          fontFamily: "'IBM Plex Mono', 'DM Mono', monospace",
+          fontFamily: "'Be Vietnam Pro', system-ui, sans-serif",
         }}
       >
         <div
@@ -94,26 +95,6 @@ export default function NavBar() {
             margin: '0 auto',
           }}
         >
-          {/* Left Label */}
-          <div
-            style={{
-              color: '#c0392b',
-              fontVariant: 'small-caps',
-              letterSpacing: '0.15em',
-              fontSize: '0.7rem',
-              fontWeight: 700,
-              padding: '0 20px',
-              borderRight: '1px solid #e0e0e0',
-              height: '24px',
-              display: 'flex',
-              alignItems: 'center',
-              flexShrink: 0,
-              cursor: 'default',
-            }}
-          >
-            Phe 1A
-          </div>
-
           {/* Scrollable Tabs Container */}
           <nav
             className="nav-tabs-container"
@@ -151,23 +132,13 @@ export default function NavBar() {
                     borderBottom: isActive ? '2px solid #1a56db' : '2px solid transparent',
                     color: isActive ? '#0d0d0d' : '#6b7280',
                     fontSize: '0.78rem',
-                    fontWeight: 500,
-                    letterSpacing: '0.05em',
+                    fontWeight: 600,
+                    letterSpacing: '0.08em',
                     textTransform: 'uppercase',
                     whiteSpace: 'nowrap',
                     cursor: 'pointer',
                   }}
                 >
-                  <span
-                    style={{
-                      fontSize: '0.65em',
-                      marginTop: '-0.3em',
-                      marginRight: '6px',
-                      opacity: 0.8,
-                    }}
-                  >
-                    {tab.num}
-                  </span>
                   <span>{tab.label}</span>
                 </button>
               );
